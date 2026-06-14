@@ -9,7 +9,8 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>Building practical ML systems for science.</p>
+    <p>PhD, Federal University of Rio de Janeiro (2023)</p>
+    <p>Scientific Machine Learning</p>
 
 selected_papers: false
 social: true # includes social icons at the bottom of the page
