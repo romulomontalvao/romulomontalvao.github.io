@@ -1,125 +1,151 @@
 ---
 ---
+@article{SANTOS2026114981,
+  title = {Hybrid DeepONet Surrogates for Multiphase Flow in Porous Media},
+  journal = {Journal of Computational Physics},
+  pages = {114981},
+  year = {2026},
+  issn = {0021-9991},
+  doi = {10.1016/j.jcp.2026.114981},
+  url = {https://www.sciencedirect.com/science/article/pii/S0021999126003347},
+  author = {Ezequiel S. Santos and Gabriel F. Barros and Amanda C.N. Oliveira and Rômulo M. Silva and Rodolfo S.M. Freitas and Dakshina M. Valiveti and Xiao-Hui Wu and Fernando A. Rochinha and Alvaro L.G.A. Coutinho},
+  abstract = {The solution of partial differential equations (PDEs) plays a central role in numerous applications in science and engineering, particularly those involving multiphase flow in porous media. Complex, nonlinear systems govern these problems and are notoriously computationally intensive, especially in real-world applications and reservoirs. Recent advances in deep learning have spurred the development of data-driven surrogate models that approximate PDE solutions with reduced computational cost. Among these, Neural Operators such as Fourier Neural Operator (FNO) and Deep Operator Networks (DeepONet) have shown strong potential for learning parameter-to-solution mappings, enabling the generalization across families of PDEs. However, both methods face challenges when applied independently to complex porous media flows, including high memory requirements and difficulty handling the time dimension. To address these limitations, this work introduces hybrid neural operator surrogates based on DeepONet models that integrate Fourier Neural Operators, Multi-Layer Perceptrons (MLPs), and Kolmogorov-Arnold Networks (KANs) within their branch and trunk networks. The proposed framework decouples spatial and temporal learning tasks by splitting these structures into the branch and trunk networks, respectively. We evaluate these hybrid models on multiphase flow in porous media problems ranging in complexity from the steady 2D Darcy flow to the 2D and 3D problems belonging to the 10th Comparative Solution Project from the Society of Petroleum Engineers. Results demonstrate that hybrid schemes achieve accurate surrogate modeling with significantly fewer parameters while maintaining strong predictive performance on large-scale reservoir simulations.},
+  selected = {true}
+}
+
+@article{Freitas2025,
+  title = {AEDA: an adversarial architecture for deep surrogates applied to uncertainty quantification in seismic imaging},
+  volume = {30},
+  issn = {1573-1499},
+  url = {http://dx.doi.org/10.1007/s10596-025-10401-6},
+  doi = {10.1007/s10596-025-10401-6},
+  number = {1},
+  journal = {Computational Geosciences},
+  publisher = {Springer Science and Business Media LLC},
+  author = {Freitas, Rodolfo S. M. and Barbosa, Carlos H. S. and Alves, Charlan D. S. and Silva, Bruno S. and Silva, Rômulo M. and Coutinho, Alvaro L. G. A. and Rochinha, Fernando A.},
+  year = {2025},
+  month = dec
+}
+
+@article{MSilva2024,
+  title = {A PINN-based level-set formulation for reconstruction of bubble dynamics},
+  volume = {94},
+  issn = {1432-0681},
+  url = {http://dx.doi.org/10.1007/s00419-024-02622-5},
+  doi = {10.1007/s00419-024-02622-5},
+  number = {9},
+  journal = {Archive of Applied Mechanics},
+  publisher = {Springer Science and Business Media LLC},
+  author = {Silva, Rômulo M. and Grave, Malú and Coutinho, Alvaro L. G. A.},
+  year = {2024},
+  month = may,
+  pages = {2667--2682},
+  selected = {true}
+}
+
+@inproceedings{Freitas2024,
+  author = {Rodolfo S. M. Freitas and Fernando A. Rochinha and Alvaro L. G. A. Coutinho and Rômulo M. Silva and Gabriel F. Barros and Ezequiel S. Santos},
+  title = {Uncertainty Quantification for CO\textsubscript{2} Sequestration Using Neural Operators},
+  booktitle = {XLV Ibero-Latin American Congress on Computational Methods in Engineering (CILAMCE)},
+  year = {2024},
+  url = {https://www.cilamce.com.br/}
+}
+
+@inproceedings{Silva2021b,
+  author = {Silva, R M and Pina, D and Kunstmann, L and Oliveira, D and Valduriez, P and Coutinho, A L G A and Mattoso, M},
+  booktitle = {Iberian Latin-American Congress on Computational Methods in Engineering},
+  title = {Capturing Provenance to Improve the Model Training of \uppercase{PINN}s: first hand-on experiences with Grid5000},
+  url = {https://cilamce.com.br/anais/arearestrita/apresentacoes/252/9200.pdf},
+  year = {2021}
+}
+
+@inproceedings{Silva2021a,
+  author = {Silva, R M and Coutinho, A L G A},
+  booktitle = {Iberian Latin-American Congress on Computational Methods in Engineering},
+  title = {\uppercase{PINN}s for Parametric Incompressible Newtonian Flows},
+  url = {https://cilamce.com.br/anais/arearestrita/apresentacoes/252/9345.pdf},
+  year = {2021}
+}
+
+@inproceedings{Silva2020,
+  author = {Silva, R M and Coutinho, A L G A},
+  booktitle = {Iberian Latin-American Congress on Computational Methods in Engineering},
+  title = {Physics-Informed Neural Networks for the Factored Eikonal Equation},
+  url = {https://www.cilamce.com.br/arearestrita/apresentacoes/191/8648.pdf},
+  year = {2020}
+}
+
+@misc{barbosa2020workflow,
+  title = {A workflow for seismic imaging with quantified uncertainty},
+  author = {Carlos H. S. Barbosa and Liliane N. O. Kunstmann and Rômulo M. Silva and Charlan D. S. Alves and Bruno S. Silva and Djalma M. S. Filho and Marta Mattoso and Fernando A. Rochinha and Alvaro L. G. A. Coutinho},
+  year = {2020},
+  eprint = {2001.06444},
+  archivePrefix = {arXiv},
+  primaryClass = {physics.geo-ph}
+}
+
+@article{doi:10.1080/10618562.2020.1771325,
+  author = {Adriano M. A. Cortes and Erb F. Lins and Gabriel M. Guerra and Rômulo M. Silva and José L. D. Alves and Renato N. Elias and Fernando A. Rochinha and Alvaro L. G. A. Coutinho},
+  title = {EdgeCFD: a parallel residual-based variational multiscale code for multiphysics},
+  journal = {International Journal of Computational Fluid Dynamics},
+  pages = {1--20},
+  year = {2020},
+  publisher = {Taylor \& Francis},
+  doi = {10.1080/10618562.2020.1771325},
+  url = {https://doi.org/10.1080/10618562.2020.1771325}
+}
+
 @article{https://doi.org/10.13140/rg.2.2.27991.83368,
   doi = {10.13140/RG.2.2.27991.83368},
   url = {http://rgdoi.net/10.13140/RG.2.2.27991.83368},
-  author = {Carlos,  Henrique S and {Barbosa} and Silva,  Bruno S and {Charlan D S Alves} and {R\^omulo M Silva} and Kunstmann,  Liliane N O and Costa,  Henrique F and Alves,  José L D and Mattoso,  Marta L Q and Rochinha,  Fernando A and {Djalma M S Filho} and Coutinho,  Alvaro L G A},
+  author = {Carlos, Henrique S and {Barbosa} and Silva, Bruno S and {Charlan D S Alves} and {Rômulo M Silva} and Kunstmann, Liliane N O and Costa, Henrique F and Alves, José L D and Mattoso, Marta L Q and Rochinha, Fernando A and {Djalma M S Filho} and Coutinho, Alvaro L G A},
   language = {en},
-  title = {A SCIENTIFC WORKFLOW FOR REVERSE TIME MIGRATION UNDER UNCERTAINTY},
+  title = {A Scientific Workflow for Reverse Time Migration under Uncertainty},
   publisher = {Unpublished},
   year = {2019},
-  preview={uq_seismic.png}
+  preview = {uq_seismic.png}
 }
 
-@string{aps = {American Physical Society,}}
-
-@book{einstein1920relativity,
-  title={Relativity: the Special and General Theory},
-  author={Einstein, Albert},
-  year={1920},
-  publisher={Methuen & Co Ltd},
-  html={relativity.html}
+@article{Silva2018vecpar,
+  author = {Silva, R M and Lima, B S J and Camata, J J and Elias, R N and Coutinho, A L. G. A.},
+  journal = {Lecture Notes in Computer Science},
+  pages = {14},
+  title = {Communication-Free Parallel Mesh Multiplication for Large Scale Simulations},
+  year = {2018}
 }
 
-@book{einstein1956investigations,
-  bibtex_show={true},
-  title={Investigations on the Theory of the Brownian Movement},
-  author={Einstein, Albert},
-  year={1956},
-  publisher={Courier Corporation},
-  preview={brownian-motion.gif}
+@inproceedings{Silva2018,
+  author = {Silva, R M and Elias, R N and Coutinho, A L G A},
+  booktitle = {II Brazilian Conference of Computational Fluid Dynamics (CBCFD)},
+  title = {Finite Element Mesh Multiplication with Boundary Smoothing},
+  abstract = {A procedure to recover the geometry boundary of refined finite element meshes is presented. Initially, the coarse mesh is submitted to an uniform refinement by splitting the elements, but maintaining the coarse boundary. Then, the boundary nodes of the refined mesh are filtered. To avoid search overheads, the boundary nodes and the STL vertexes are subdivided into sub-regions called BINs, and the search for closest nodes is performed only to the nodes in the same sub-region. The capability of the proposed procedure is illustrated on an example.},
+  pages = {4},
+  url = {https://callforpapers.galoa.com.br/br/system/files/realm/cbcfd-2018/submissions/submission-84300-611241-field_submission_fulltext_file1.pdf},
+  year = {2018}
 }
 
-@article{einstein1950meaning,
-  abbr={AJP},
-  bibtex_show={true},
-  title={The meaning of relativity},
-  author={Einstein, Albert and Taub, AH},
-  journal={American Journal of Physics},
-  volume={18},
-  number={6},
-  pages={403--404},
-  year={1950},
-  publisher={American Association of Physics Teachers}
+@inproceedings{Silva2017,
+  author = {Silva, R M and Cavalcante, M A A},
+  booktitle = {Iberian Latin-American Congress on Computational Methods in Engineering},
+  doi = {10.20906/CPS/CILAMCE2017-1230},
+  title = {Structural Reliability Analysis of Composite Material Pipes under Hydrostatic Pressure},
+  url = {http://www.swge.inf.br/proceedings/paper/?P=CILAMCE2017-1230},
+  year = {2017}
 }
 
-@article{PhysRev.47.777,
-  abbr={PhysRev},
-  title={Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?},
-  author={Einstein*†, A. and Podolsky*, B. and Rosen*, N.},
-  abstract={In a complete theory there is an element corresponding to each element of reality. A sufficient condition for the reality of a physical quantity is the possibility of predicting it with certainty, without disturbing the system. In quantum mechanics in the case of two physical quantities described by non-commuting operators, the knowledge of one precludes the knowledge of the other. Then either (1) the description of reality given by the wave function in quantum mechanics is not complete or (2) these two quantities cannot have simultaneous reality. Consideration of the problem of making predictions concerning a system on the basis of measurements made on another system that had previously interacted with it leads to the result that if (1) is false then (2) is also false. One is thus led to conclude that the description of reality as given by a wave function is not complete.},
-  journal={Phys. Rev.},
-  location={New Jersey},
-  volume={47},
-  issue={10},
-  pages={777--780},
-  numpages={0},
-  year={1935},
-  month={May},
-  publisher=aps,
-  doi={10.1103/PhysRev.47.777},
-  url={http://link.aps.org/doi/10.1103/PhysRev.47.777},
-  html={https://journals.aps.org/pr/abstract/10.1103/PhysRev.47.777},
-  pdf={example_pdf.pdf},
-  altmetric={248277},
-  dimensions={true},
-  google_scholar_id={qyhmnyLat1gC},
-  video={https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ},
-  additional_info={. *More Information* can be [found here](https://github.com/alshedivat/al-folio/)},
-  annotation={* Example use of superscripts<br>† Albert Einstein},
-  selected={true},
-  inspirehep_id = {3255}
+@inproceedings{Silva2016,
+  author = {Silva, R M and Cavalcante, M A A},
+  address = {Brasília},
+  booktitle = {Iberian Latin-American Congress on Computational Methods in Engineering},
+  title = {Comparative Study between Homogeneous and Composite Material Pipes under Hydrostatic Pressure},
+  year = {2016}
 }
 
-@article{einstein1905molekularkinetischen,
-  title={{\"U}ber die von der molekularkinetischen Theorie der W{\"a}rme geforderte Bewegung von in ruhenden Fl{\"u}ssigkeiten suspendierten Teilchen},
-  author={Einstein, A.},
-  journal={Annalen der physik},
-  volume={322},
-  number={8},
-  pages={549--560},
-  year={1905},
-  publisher={Wiley Online Library}
-}
-
-@article{einstein1905movement,
-  abbr={Ann. Phys.},
-  title={Un the movement of small particles suspended in statiunary liquids required by the molecular-kinetic theory 0f heat},
-  author={Einstein, A.},
-  journal={Ann. Phys.},
-  volume={17},
-  pages={549--560},
-  year={1905}
-}
-
-@article{einstein1905electrodynamics,
-  title={On the electrodynamics of moving bodies},
-  author={Einstein, A.},
-  year={1905}
-}
-
-@Article{einstein1905photoelectriceffect,
-  bibtex_show={true},
-  abbr={Ann. Phys.},
-  title="{{\"U}ber einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt}",
-  author={Albert Einstein},
-  abstract={This is the abstract text.},
-  journal={Ann. Phys.},
-  volume={322},
-  number={6},
-  pages={132--148},
-  year={1905},
-  doi={10.1002/andp.19053220607},
-  award={Albert Einstein receveid the **Nobel Prize in Physics** 1921 *for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect*},
-  award_name={Nobel Prize}
-}
-
-@book{przibram1967letters,
-  bibtex_show={true},
-  title={Letters on wave mechanics},
-  author={Einstein, Albert and Schrödinger, Erwin and Planck, Max and Lorentz, Hendrik Antoon and Przibram, Karl},
-  year={1967},
-  publisher={Vision},
-  preview={wave-mechanics.gif},
-  abbr={Vision}
+@inproceedings{Silva2015d,
+  author = {Silva, R M and Cavalcante, M A A},
+  address = {Rio de Janeiro},
+  booktitle = {Iberian Latin-American Congress on Computational Methods in Engineering},
+  title = {Critical Pressure Analysis of Composite Material Pipes Reinforced by Long Fibers},
+  pages = {10},
+  year = {2015}
 }

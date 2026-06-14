@@ -2,9 +2,11 @@
 layout: page
 permalink: /publications/
 title: publications
-description: Selected work and papers.
+description: Papers in reverse chronological order.
 nav: true
 nav_order: 2
 ---
 
-Publications list coming soon.
+<div class="publications">
+{% bibliography %}
+</div>
