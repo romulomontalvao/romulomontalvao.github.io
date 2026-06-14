@@ -1,0 +1,101 @@
+/*******************************************************************************
+ * Custom visual refresh — layered on top of stock al-folio.
+ * Self-contained: only overrides CSS variables + adds polish. No core edits.
+ * Imported last in main.scss so these win by source order.
+ ******************************************************************************/
+
+// --- Accent palette -------------------------------------------------------
+// One disciplined hue family (indigo/violet) instead of the default purple/cyan.
+
+:root {
+  --accent: #4f46e5; // indigo-600
+  --accent-soft: #6d28d9; // violet-700
+  --global-theme-color: var(--accent);
+  --global-hover-color: var(--accent);
+  --global-divider-color: rgba(79, 70, 229, 0.12);
+}
+
+html[data-theme="dark"] {
+  --accent: #818cf8; // indigo-300, glows on dark
+  --accent-soft: #a78bfa; // violet-400
+  --global-theme-color: var(--accent);
+  --global-hover-color: var(--accent);
+  --global-divider-color: rgba(129, 140, 248, 0.18);
+}
+
+// --- Typography -----------------------------------------------------------
+// Roboto Slab is already loaded by the theme; promote it for headings.
+
+h1, h2, h3, h4, h5, h6,
+.post-title,
+.navbar-brand.title {
+  font-family: "Roboto Slab", "Roboto", serif;
+  letter-spacing: -0.01em;
+}
+
+// Editorial hero name: oversized with a violet→indigo gradient wash.
+.post-header .post-title {
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 0.4rem;
+
+  .font-weight-bold {
+    background: linear-gradient(120deg, var(--accent-soft), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.post-header .desc {
+  font-size: 1.15rem;
+  color: var(--global-text-color-light);
+}
+
+// --- Links: animated underline grows from the start on hover --------------
+.post a:not(.no-underline),
+article a:not(.no-underline) {
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0% 1.5px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.25s ease;
+  text-decoration: none;
+}
+.post a:not(.no-underline):hover,
+article a:not(.no-underline):hover {
+  background-size: 100% 1.5px;
+  color: var(--accent);
+}
+
+// --- Cards: softer shadow, gentle lift on hover ---------------------------
+.card {
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 6px 18px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.1), 0 14px 34px rgba(79, 70, 229, 0.12);
+}
+
+// --- Profile image: framed, subtle depth ----------------------------------
+.profile img {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
+}
+.profile img:hover {
+  transform: scale(1.02);
+}
+
+// --- Navbar: smooth color transitions on links ----------------------------
+.navbar .nav-item .nav-link {
+  transition: color 0.2s ease;
+}
+
+// --- Selection color matches the accent -----------------------------------
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
