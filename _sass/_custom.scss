@@ -1,101 +1,245 @@
 /*******************************************************************************
- * Custom visual refresh — layered on top of stock al-folio.
- * Self-contained: only overrides CSS variables + adds polish. No core edits.
- * Imported last in main.scss so these win by source order.
+ * Custom design system — "fancy, but for a scientist".
+ * Layered on top of stock al-folio: overrides CSS variables + adds polish.
+ * Self-contained, imported last in main.scss. No edits to theme core files.
+ *
+ * Direction: ink on warm paper (light) / deep slate (dark), one petrol-teal
+ * accent, elegant serif headlines paired with a crisp letter-spaced sans nav.
  ******************************************************************************/
 
-// --- Accent palette -------------------------------------------------------
-// One disciplined hue family (indigo/violet) instead of the default purple/cyan.
-
+// ===========================================================================
+// 1. Palette  — light = warm paper, dark = deep slate, single teal accent
+// ===========================================================================
 :root {
-  --accent: #4f46e5; // indigo-600
-  --accent-soft: #6d28d9; // violet-700
+  --accent: #0f766e; // petrol teal
+  --accent-strong: #0b5f58;
+
+  --global-bg-color: #faf8f4; // warm paper
+  --global-text-color: #1b1b1a; // ink
+  --global-text-color-light: #6c6a64;
   --global-theme-color: var(--accent);
-  --global-hover-color: var(--accent);
-  --global-divider-color: rgba(79, 70, 229, 0.12);
+  --global-hover-color: var(--accent-strong);
+  --global-divider-color: rgba(27, 27, 26, 0.1);
+  --global-card-bg-color: #ffffff;
+  --global-code-bg-color: rgba(15, 118, 110, 0.06);
+  --global-footer-bg-color: #161514;
+  --global-footer-text-color: #b8b5ad;
+  --global-footer-link-color: #ffffff;
+
+  // translucent frosted nav background
+  --nav-bg: rgba(250, 248, 244, 0.82);
 }
 
 html[data-theme="dark"] {
-  --accent: #818cf8; // indigo-300, glows on dark
-  --accent-soft: #a78bfa; // violet-400
+  --accent: #5eead4; // teal-300, glows on slate
+  --accent-strong: #99f6e4;
+
+  --global-bg-color: #0e1217; // deep slate
+  --global-text-color: #d7dbe0;
+  --global-text-color-light: #8b919a;
   --global-theme-color: var(--accent);
-  --global-hover-color: var(--accent);
-  --global-divider-color: rgba(129, 140, 248, 0.18);
+  --global-hover-color: var(--accent-strong);
+  --global-divider-color: rgba(215, 219, 224, 0.12);
+  --global-card-bg-color: #161b22;
+  --global-code-bg-color: rgba(94, 234, 212, 0.08);
+
+  --nav-bg: rgba(14, 18, 23, 0.78);
 }
 
-// --- Typography -----------------------------------------------------------
-// Roboto Slab is already loaded by the theme; promote it for headings.
+// ===========================================================================
+// 2. Typography — elegant serif headlines, crisp sans body
+// ===========================================================================
+$serif: "Spectral", "Roboto Slab", Georgia, serif;
 
 h1, h2, h3, h4, h5, h6,
-.post-title,
-.navbar-brand.title {
-  font-family: "Roboto Slab", "Roboto", serif;
+.post-title {
+  font-family: $serif;
   letter-spacing: -0.01em;
+  font-weight: 600;
 }
 
-// Editorial hero name: oversized with a violet→indigo gradient wash.
+body {
+  // slightly airier reading rhythm
+  line-height: 1.65;
+}
+
+// Section headings get a quiet rule for structure
+.post h2,
+article h2 {
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--global-divider-color);
+  margin-top: 2.2rem;
+}
+
+// ---- Hero: large serif name, a thin accent rule beneath the header --------
+.post-header {
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.8rem;
+  border-bottom: 2px solid var(--accent);
+}
 .post-header .post-title {
   font-size: clamp(2.6rem, 6vw, 4rem);
-  font-weight: 700;
-  line-height: 1.05;
-  margin-bottom: 0.4rem;
-
-  .font-weight-bold {
-    background: linear-gradient(120deg, var(--accent-soft), var(--accent));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+  line-height: 1.04;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
-
 .post-header .desc {
-  font-size: 1.15rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 0.01em;
   color: var(--global-text-color-light);
 }
 
-// --- Links: animated underline grows from the start on hover --------------
-.post a:not(.no-underline),
-article a:not(.no-underline) {
+// ===========================================================================
+// 3. Navbar / menus — frosted bar, letter-spaced sans, animated active rule
+// ===========================================================================
+.navbar {
+  border-bottom: 1px solid var(--global-divider-color);
+  background-color: var(--nav-bg) !important;
+  opacity: 1;
+  backdrop-filter: saturate(160%) blur(12px);
+  -webkit-backdrop-filter: saturate(160%) blur(12px);
+}
+
+.navbar.navbar-light {
+  .navbar-brand {
+    font-family: $serif;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+
+  .navbar-nav .nav-item .nav-link {
+    position: relative;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+    color: var(--global-text-color);
+    transition: color 0.2s ease;
+
+    // animated underline that grows from center
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0.85rem;
+      right: 0.85rem;
+      bottom: 0.35rem;
+      height: 1.5px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.25s ease;
+    }
+    &:hover::after {
+      transform: scaleX(1);
+    }
+    &:hover {
+      color: var(--accent);
+    }
+  }
+
+  .navbar-nav .nav-item.active > .nav-link {
+    font-weight: 600;
+    color: var(--accent);
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+// Dropdown menus: rounded, soft shadow, breathing room
+.navbar .dropdown-menu {
+  border: 1px solid var(--global-divider-color);
+  border-radius: 10px;
+  padding: 0.4rem;
+  margin-top: 0.4rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  background-color: var(--global-card-bg-color);
+}
+.dropdown-item {
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  &:hover {
+    background-color: var(--global-code-bg-color);
+    color: var(--accent);
+  }
+}
+
+// ===========================================================================
+// 4. Links — underline grows on hover (content area only)
+// ===========================================================================
+.post a:not(.no-underline):not(.navbar-brand):not(.page-link),
+article a:not(.no-underline):not(.btn) {
   background-image: linear-gradient(var(--accent), var(--accent));
   background-size: 0% 1.5px;
   background-position: 0 100%;
   background-repeat: no-repeat;
-  transition: background-size 0.25s ease;
+  transition: background-size 0.25s ease, color 0.2s ease;
   text-decoration: none;
-}
-.post a:not(.no-underline):hover,
-article a:not(.no-underline):hover {
-  background-size: 100% 1.5px;
   color: var(--accent);
+
+  &:hover {
+    background-size: 100% 1.5px;
+    color: var(--accent-strong);
+  }
 }
 
-// --- Cards: softer shadow, gentle lift on hover ---------------------------
+// ===========================================================================
+// 5. Cards & profile image — soft elevation, gentle lift
+// ===========================================================================
 .card {
-  border: none;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 6px 18px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.05);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.1), 0 14px 34px rgba(79, 70, 229, 0.12);
+  box-shadow: 0 6px 14px rgba(15, 118, 110, 0.1),
+    0 18px 40px rgba(15, 118, 110, 0.12);
 }
 
-// --- Profile image: framed, subtle depth ----------------------------------
 .profile img {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.14);
   transition: transform 0.3s ease;
 }
 .profile img:hover {
   transform: scale(1.02);
 }
 
-// --- Navbar: smooth color transitions on links ----------------------------
-.navbar .nav-item .nav-link {
-  transition: color 0.2s ease;
+// ===========================================================================
+// 6. Misc polish — dividers, selection, publications, footer
+// ===========================================================================
+hr {
+  border-top: 1px solid var(--global-divider-color);
 }
 
-// --- Selection color matches the accent -----------------------------------
 ::selection {
   background: var(--accent);
+  color: #ffffff;
+}
+
+// Publications: year headers as quiet section markers
+.publications h2.year {
+  font-family: $serif;
+  color: var(--global-text-color-light);
+  border-bottom: 1px solid var(--global-divider-color);
+  padding-bottom: 0.3rem;
+  margin-top: 2.5rem;
+}
+// the venue/preview badge stays crisp
+.publications .badge {
+  background-color: var(--accent) !important;
   color: #fff;
+}
+
+footer.fixed-bottom,
+footer.sticky-bottom {
+  border-top: 1px solid var(--global-divider-color);
 }
